@@ -11,3 +11,19 @@
   <p>이 파일을 자유롭게 수정해보세요.</p>
 </body>
 </html>
+import { useState } from 'react';
+import Calendar from 'react-calendar';
+
+type ValuePiece = Date | null;
+
+type Value = ValuePiece | [ValuePiece, ValuePiece];
+
+function MyApp() {
+  const [value, onChange] = useState<Value>(new Date());
+
+  return (
+    <div>
+      <Calendar onChange={onChange} value={value} />
+    </div>
+  );
+}
